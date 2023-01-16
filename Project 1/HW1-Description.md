@@ -1,7 +1,7 @@
-Assignment 1: Class-based Inheritance and Virtual Dispatch in Java
+# Assignment 1: Class-based Inheritance and Virtual Dispatch in Java
 Due Friday, September 18 at 11:59 PM
 
-Goals for This Assignment
+#### Goals for This Assignment
 By the time you have completed this work, you should be able to:
 
 Use class-based inheritance to implement different behaviors for the same method
@@ -16,10 +16,10 @@ hamcrest-2.2.jar
 junit-4.13.jar
 makefile
 Step-by-Step Instructions
-Step 1: Download Needed Code
+## Step 1: Download Needed Code
 Download everything from the links above into a single directory.
 
-Step 2: Read and Understand Provided Code
+## Step 2: Read and Understand Provided Code
 For this assignment, you'll be working with an immutable linked list implementation, a type of persistent data structure. While you (hopefully!) are familiar with linked lists, this implementation is likely very different from the one you're used to. Notably:
 
 Existing lists cannot be modified (the immutable/persistant part). Operations which would normally modify the list (like append) instead return a new list, reflecting the result of the operation. For example, [1, 2].append([3, 4, 5]) returns the list [1, 2, 3, 4, 5], leaving the original lists [1, 2] and [3, 4, 5] unmodified.
@@ -29,7 +29,7 @@ There is no special class holding the head of a list. Instead, Cons and Nil are 
 Cons and Nil both implement the ImmutableList interface. If something wants to take a list as a parameter, it should take an ImmutableList; which could be either an empty list (Nil) or a non-empty list (Cons).
 In addition to the above bullets, there is a provided JUnit 4 test suite in ImmutableListTest.java. There is also a makefile (makefile), which can be used to make it easier to compile and run the code on a system with make installed (easy on Linux and Mac, not so easy on Windows).
 
-Step 3: (Try to) Compile and Run the Tests
+## Step 3: (Try to) Compile and Run the Tests
 If you have make installed, you can compile the code and subsequently run the test suite with:
 
 make
@@ -57,7 +57,7 @@ If tests are failing, the output will instead show which tests are failing. From
 
 Note that the provided code will not compile as provided. It's missing the implementations of multiple methods which are needed to make the tests compile.
 
-Step 4: Implement Missing Code, with Restrictions
+## Step 4: Implement Missing Code, with Restrictions
 Add code to Cons.java and Nil.java to get it to compile and pass the tests. Specifically, you need to implement the following methods for each:
 
 length: returns the length of a list. As a hint, empty lists (Nil) have length 0.
@@ -66,7 +66,7 @@ append: appends two lists together, returning a new list.
 contains: returns true if the given list contains the given element, else false.
 Example calls to these methods are in ImmutableList.java.
 
-Restrictions
+### Restrictions
 For full credit, your code:
 
 Can only modify Cons.java and Nil.java; I'll only look at these two files.
@@ -74,7 +74,7 @@ CANNOT use loops (no for, foreach, while, or do-while). Any provided code that u
 CANNOT use conditionals (no if, switch, or ternary ((...) ? ... : ...)). Any provided code that uses conditionals is ok.
 These restrictions will force you to use recursion for a correct solution, and will also force you to fully exploit virtual dispatch (also known as dynamic dispatch, polymorphism, and ad-hoc polymorphism). While these restrictions will likely be annoying, it will force you to use a key object-oriented feature (virtual dispatch), as well as serve as good practice for later in the course (recursion).
 
-Hints
+### Hints
 It's recommended to first write method stubs for all the methods you need to implement. This will get all the code compiling, but the tests won't pass. This is still progress, and this way you can focus on getting one set of tests (or even just one test) to pass at a time.
 Mentally, whenever you think something like:
 if (list is empty) {
@@ -87,7 +87,7 @@ While you only have to implement 4 operations, each of these has a different imp
 Once you think you have an operation working, run the tests again using the instructions in step 3. It's probably best to focus on getting one set of tests (or even just one test) passing at a time.
 Specific to contains, you do not need to use if, though you'll need to use the short-circuiting nature of ||. Specifically you can implement this using something like the following:
   return head == value || <<recursive call>>;
-Step 5: Turn in Your Code Using Canvas
+## Step 5: Turn in Your Code Using Canvas
 Log into Canvas, and go to the COMP 333 class. Click “Assignments” on the left pane, then click “Assignment 1”. From here, you need to upload the following files:
 
 Cons.java
